@@ -1,0 +1,10 @@
+schemaVersion: v0.2
+prepare:
+  steps:
+    - name: Maven Build
+      command: ./mvnw build
+test:
+  steps:
+    - name: Maven Test
+      command: ./mvnw test
+run: {}
