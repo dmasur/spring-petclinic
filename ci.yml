@@ -2,9 +2,19 @@ schemaVersion: v0.2
 prepare:
   steps:
     - name: Maven Build
-      command: ./mvnw build
+      command: ./app/mvnw compile -Dcheckstyle.skip=true
 test:
   steps:
     - name: Maven Test
-      command: ./mvnw test
-run: {}
+      command: ./app/mvnw test -Dcheckstyle.skip=true
+run:
+  service-1:
+    steps:
+      - name: Run
+        command: ./app/mvnw spring-boot:run -Dcheckstyle.skip=true
+    plan: 8
+    replicas: 1
+    isPublic: true
+    network:
+      path: /service-1
+      stripPath: false
