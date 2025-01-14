@@ -12,7 +12,7 @@ run:
     steps:
       - name: Run
         command: ./app/mvnw spring-boot:run -Dcheckstyle.skip=true
-    plan: 8
+    plan: 101
     replicas: 1
     isPublic: true
     network:
